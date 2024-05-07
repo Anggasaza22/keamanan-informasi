@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>algoritma AES</title>
+    <style>
+        <head>    <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Symmetric Encryption/Decryption</title>
+        </head>
+        body {
+            font-family: sans-serif;
+ 
+        }
+
+        .container {
+            width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #7a1717;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #c94040;
+        }
+
+        button {
+            padding: 8px 15px;
+            background-color: #d47a0c;
+            color: rgb(48, 43, 43);
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        #result {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <label for="plaintext">Plain Text:</label>
+        <input type="text" id="plaintext">
+
+        <label for="password">kunci:</label>
+        <input type="password" id="password">
+
+        <button onclick="encrypt()">Encrypt</button>
+        <button onclick="decrypt()">Decrypt</button>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function encrypt() {
+            const plaintext = document.getElementById('plaintext').value;
+            const kunci = document.getElementById('password').value;
+
+            // Replace with your chosen encryption algorithm (e.g., AES, Blowfish)
+            // This is a simplified example using a basic XOR encryption
+            let ciphertext = '';
+            for (let i = 0; i < plaintext.length; i++) {
+                const charCode = plaintext.charCodeAt(i);
+                const key = kunci.charCodeAt(i % password.length);
+                const encryptedCharCode = charCode ^ key;
+                ciphertext += String.fromCharCode(encryptedCharCode);
+            }
+
+            document.getElementById('result').textContent = 'Encrypted Text: ' + ciphertext;
+        }
+
+        function decrypt() {
+            const ciphertext = document.getElementById('result').textContent.slice(16); // Remove 'Encrypted Text: '
+            const kunci= document.getElementById('password').value;
+
+            // Replace with your chosen decryption algorithm (e.g., AES, Blowfish)
+            // This is a simplified example using a basic XOR decryption
+            let plaintext = '';
+            for (let i = 0; i < ciphertext.length; i++) {
+                const charCode = ciphertext.charCodeAt(i);
+                const key = kunci.charCodeAt(i % password.length);
+                const decryptedCharCode = charCode ^ key;
+                plaintext += String.fromCharCode(decryptedCharCode);
+            }
+
+            document.getElementById('result').textContent = 'Decrypted Text: ' + plaintext;
+        }
+    </script>
+</body>
+</html>
